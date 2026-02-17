@@ -175,3 +175,7 @@ terraform.rc
 # Plan output
 *.tfplan
 # End of https://www.toptal.com/developers/gitignore/api/java,intellij
+
+# Sensitive variable files
+*.tfvars
+*.tfvars.json
