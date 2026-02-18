@@ -57,7 +57,7 @@ jobs:
       working_directory: ./infra
       auto_apply: true
       tfvars_file: 'environments/prod.tfvars'
-      localstack_pod: 'fiao-microservices/prod'
+      localstack_pod: 'fiap'
       terraform_vars: '{"image_tag": "stable", "replicas": 3, "environment": "prod"}'
     secrets:
       LOCALSTACK_AUTH_TOKEN: ${{ secrets.LOCALSTACK_AUTH_TOKEN }}

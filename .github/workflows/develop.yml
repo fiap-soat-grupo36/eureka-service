@@ -56,15 +56,15 @@ jobs:
       working_directory: ./infra
       auto_apply: true
       tfvars_file: 'environments/dev.tfvars'
+      localstack_pod: 'fiap'
       terraform_vars: |
         {
           "image_tag": "${{ github.ref_name }}-${{ github.sha }}",
           "replicas": 1,
           "environment": "dev"
-        }
+        }    
     secrets:
-      AWS_ACCESS_KEY_ID: ${{ secrets.DEV_AWS_ACCESS_KEY }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.DEV_AWS_SECRET_KEY }}
+      LOCALSTACK_AUTH_TOKEN: ${{ secrets.LOCALSTACK_AUTH_TOKEN }}
 
   # 5. Criar PR Automático para Main (Produção)
   create-pr-to-main:
