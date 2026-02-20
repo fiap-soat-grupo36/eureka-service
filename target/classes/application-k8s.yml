@@ -1,0 +1,42 @@
+server:
+  port: ${SERVER_PORT:8761}
+
+eureka:
+  instance:
+    hostname: ${EUREKA_HOSTNAME:eureka-server}
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 4000
+    response-cache-update-interval-ms: 5000
+    response-cache-auto-expiration-in-seconds: 30
+
+springdoc:
+  swagger-ui:
+    urls:
+      - name: Auth Service
+        url: ${API_GATEWAY_BASE_URL:https://d9vqmoflh9.execute-api.us-east-2.amazonaws.com/dev}/auth/v3/api-docs
+      - name: Customer Service
+        url: ${API_GATEWAY_BASE_URL:https://d9vqmoflh9.execute-api.us-east-2.amazonaws.com/dev}/customer/v3/api-docs
+      - name: Catalog Service
+        url: ${API_GATEWAY_BASE_URL:https://d9vqmoflh9.execute-api.us-east-2.amazonaws.com/dev}/catalog/v3/api-docs
+      - name: Inventory Service
+        url: ${API_GATEWAY_BASE_URL:https://d9vqmoflh9.execute-api.us-east-2.amazonaws.com/dev}/inventory/v3/api-docs
+      - name: Quote Service
+        url: ${API_GATEWAY_BASE_URL:https://d9vqmoflh9.execute-api.us-east-2.amazonaws.com/dev}/quote/v3/api-docs
+      - name: Work Order Service
+        url: ${API_GATEWAY_BASE_URL:https://d9vqmoflh9.execute-api.us-east-2.amazonaws.com/dev}/work-order/v3/api-docs
+    path: /swagger-ui.html
+    config-url: /v3/api-docs/swagger-config
+  servers:
+    - url: ${API_GATEWAY_BASE_URL:https://d9vqmoflh9.execute-api.us-east-2.amazonaws.com/dev}/eureka
+      description: API Gateway (${SPRING_PROFILES_ACTIVE:k8s})
+
+logging:
+  level:
+    com.netflix.eureka: INFO
+    com.netflix.discovery: INFO
