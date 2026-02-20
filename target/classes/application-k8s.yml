@@ -26,8 +26,8 @@ springdoc:
         url: ${API_GATEWAY_BASE_URL:https://d9vqmoflh9.execute-api.us-east-2.amazonaws.com/dev}/catalog/v3/api-docs
       - name: Inventory Service
         url: ${API_GATEWAY_BASE_URL:https://d9vqmoflh9.execute-api.us-east-2.amazonaws.com/dev}/inventory/v3/api-docs
-      - name: Budget Service
-        url: ${API_GATEWAY_BASE_URL:https://d9vqmoflh9.execute-api.us-east-2.amazonaws.com/dev}/budget/v3/api-docs
+      - name: Quote Service
+        url: ${API_GATEWAY_BASE_URL:https://d9vqmoflh9.execute-api.us-east-2.amazonaws.com/dev}/quote/v3/api-docs
       - name: Work Order Service
         url: ${API_GATEWAY_BASE_URL:https://d9vqmoflh9.execute-api.us-east-2.amazonaws.com/dev}/work-order/v3/api-docs
     path: /swagger-ui.html
